@@ -1,0 +1,13 @@
+zones = {
+    zone_name = {
+        account_id       = "account_guid"
+        zone             = "zone_name"
+        jump_start       = false
+        paused           = false
+        plan             = free
+        type             = full
+        always_use_https = "on"
+        ssl              = "strict"
+        min_tls_version  = "1.2"
+    }
+}
