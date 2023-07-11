@@ -61,10 +61,10 @@ resource "cloudflare_zone_settings_override" "zone" {
     tls_1_3                     = "on"
     tls_client_auth             = "off"
     true_client_ip_header       = each.value.plan == "free" ? null : "off"
-    universal_ssl               = each.value.plan == "free" ? null : ""
+    universal_ssl               = each.value.plan == "free" ? null : "on"
     visitor_ip                  = each.value.plan == "free" ? null : "on"
     waf                         = each.value.plan == "free" ? null : "off"
-    webp                        = each.value.plan == "free" ? null : ""
+    webp                        = each.value.plan == "free" ? null : "off"
     websockets                  = "on"
     zero_rtt                    = "off"
   }
