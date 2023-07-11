@@ -11,7 +11,7 @@ variable "zones" {
       always_use_https = optional(string, "on")
       ssl              = optional(string, "strict")
       min_tls_version  = optional(string, "1.2")
-      enable_total_tls = optional(bool, true)
+      hosts = list(string)
     }
   ))
 }
