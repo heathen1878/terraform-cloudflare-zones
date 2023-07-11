@@ -71,11 +71,15 @@ resource "cloudflare_zone_settings_override" "zone" {
 
 }
 
-resource "cloudflare_total_tls" "zone_total_tls" {
-  for_each = var.zones
+resource "cloudflare_certificate_pack" "zone" {
+for_each = var.zones
 
-  zone_id               = cloudflare_zone.zone[each.key].id
-  enabled               = true
-  certificate_authority = "lets_encrypt"
-
+  zone_id = cloudflare_zone.zone[each.key].id
+  type                   = "advanced"
+  hosts                  = each.value.hosts
+  validation_method      = "txt"
+  validity_days          = 90
+  certificate_authority  = "lets_encrypt"
+  cloudflare_branding    = false
+  wait_for_active_status = true
 }
