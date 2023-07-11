@@ -8,6 +8,7 @@ resource "cloudflare_zone" "zone" {
   plan       = each.value.plan
   type       = each.value.type
 }
+
 resource "cloudflare_zone_settings_override" "zone" {
   for_each = var.zones
 
@@ -67,5 +68,14 @@ resource "cloudflare_zone_settings_override" "zone" {
     websockets                  = "on"
     zero_rtt                    = "off"
   }
+
+}
+
+resource "cloudflare_total_tls" "zone_total_tls" {
+  for_each = var.zones
+
+  zone_id = cloudflare_zone.zone[each.key].id
+  enabled = true
+  certificate_authority = "lets_encrypt"
 
 }
