@@ -29,24 +29,24 @@ resource "cloudflare_zone_settings_override" "zone" {
     development_mode            = "off"
     early_hints                 = "off"
     email_obfuscation           = "on"
-    filter_logs_to_cloudflare   = each.value.plan == "free" ? null : "off"
+    filter_logs_to_cloudflare   = null
     h2_prioritization           = "off"
     hotlink_protection          = "off"
-    http2                       = each.value.plan == "free" ? null : "on"
+    http2                       = null
     http3                       = "on"
-    image_resizing              = each.value.plan == "free" ? null : "off"
+    image_resizing              = null
     ip_geolocation              = "on"
     ipv6                        = "on"
-    log_to_cloudflare           = each.value.plan == "free" ? null : "on"
+    log_to_cloudflare           = null
     max_upload                  = 100
     min_tls_version             = each.value.min_tls_version
-    mirage                      = each.value.plan == "free" ? null : "off"
+    mirage                      = null
     opportunistic_encryption    = "on"
     opportunistic_onion         = "on"
-    orange_to_orange            = each.value.plan == "free" ? null : "off"
+    orange_to_orange            = null
     origin_error_page_pass_thru = null
     origin_max_http_version     = "2"
-    polish                      = each.value.plan == "free" ? null : "off"
+    polish                      = null
     prefetch_preload            = null
     privacy_pass                = "on"
     proxy_read_timeout          = null
@@ -62,7 +62,7 @@ resource "cloudflare_zone_settings_override" "zone" {
     tls_client_auth             = "off"
     true_client_ip_header       = null
     universal_ssl               = each.value.plan == "free" ? null : "on"
-    visitor_ip                  = each.value.plan == "free" ? null : "on"
+    visitor_ip                  = null
     waf                         = each.value.plan == "free" ? null : "off"
     webp                        = each.value.plan == "free" ? null : "off"
     websockets                  = "on"
