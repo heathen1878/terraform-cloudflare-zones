@@ -44,23 +44,23 @@ resource "cloudflare_zone_settings_override" "zone" {
     opportunistic_encryption    = "on"
     opportunistic_onion         = "on"
     orange_to_orange            = each.value.plan == "free" ? null : "off"
-    origin_error_page_pass_thru = each.value.plan == "free" ? null : "off"
+    origin_error_page_pass_thru = null
     origin_max_http_version     = "2"
     polish                      = each.value.plan == "free" ? null : "off"
-    prefetch_preload            = each.value.plan == "free" ? null : "off"
+    prefetch_preload            = null
     privacy_pass                = "on"
-    proxy_read_timeout          = each.value.plan == "free" ? null : "100"
+    proxy_read_timeout          = null
     pseudo_ipv4                 = "off"
-    response_buffering          = each.value.plan == "free" ? null : "off"
+    response_buffering          = null
     rocket_loader               = "off"
     security_level              = "medium"
     server_side_exclude         = "on"
-    sort_query_string_for_cache = each.value.plan == "free" ? null : "off"
+    sort_query_string_for_cache = null
     ssl                         = each.value.ssl
     tls_1_2_only                = null
     tls_1_3                     = "on"
     tls_client_auth             = "off"
-    true_client_ip_header       = each.value.plan == "free" ? null : "off"
+    true_client_ip_header       = null
     universal_ssl               = each.value.plan == "free" ? null : "on"
     visitor_ip                  = each.value.plan == "free" ? null : "on"
     waf                         = each.value.plan == "free" ? null : "off"
